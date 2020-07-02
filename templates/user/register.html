@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Register Page
+{% endblock title %}
+
+{% block content %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/login.css')}}">
+<h1>This is the register page</h1>
+
+<label class="switch">
+    <input type="checkbox">
+    <span class="slider round"></span>
+  </label>
+
+<form action="/action_page.php" method="post">
+
+    <div class="container">
+        <label for="uname"><b>Username</b></label>
+        <input type="text" placeholder="Enter Username" name="uname" required>
+
+        <label for="uname"><b>First name</b></label>
+        <input type="text" placeholder="Enter First name" name="fname" required>
+
+        <label for="uname"><b>Last name</b></label>
+        <input type="text" placeholder="Enter Last name" name="lname" required>
+
+
+        <label for="psw"><b>Password</b></label>
+        <input type="password" placeholder="Enter Password" name="psw" required>
+
+        <input type="password" placeholder="Confirm Password" name="psw" required>
+
+        <div>
+            <button type="submit" class="loginbtn">Create User</button>
+        </div>
+
+        <div>
+            <span class="account">Already have an <a href="login">account?</a></span>
+        </div>
+
+    </div>
+
+</form>
+
+{% endblock content %}

@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Login Page
+{% endblock title %}
+
+{% block content %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/login.css')}}">
+<h1>This is the login page</h1>
+
+<form action="/action_page.php" method="post">
+
+    <div class="container">
+        <label for="uname"><b>Username</b></label>
+        <input type="text" placeholder="Enter Username" name="uname" required>
+
+        <label for="psw"><b>Password</b></label>
+        <input type="password" placeholder="Enter Password" name="psw" required>
+
+        <div>
+            <button type="submit" class="loginbtn">Login</button>
+        </div>
+        <label>
+            <input type="checkbox" checked="checked" name="remember"> Remember me
+        </label>
+
+        <div>
+            <span class="psw">Forgot <a href="#">password?</a></span>
+        </div>
+
+        <div>
+            <span class="account">Don't have an <a href="register">account</a> yet?</span>
+        </div>
+
+    </div>
+
+
+  </form>
+
+{% endblock content %}

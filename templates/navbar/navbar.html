@@ -1,0 +1,7 @@
+<link rel="stylesheet" href="{{ url_for('static', filename='css/navbar.css')}}">
+<div class="topnav">
+    <a {%if request.path == '/' %} class="active" {% endif %} href="/">Home</a>
+    <a {%if request.path == '/test' %} class="active" {% endif %} href="test">Test</a>
+    <a {%if request.path == '/contact' %} class="active" {% endif %} href="#contact">Contact</a>
+    <a {%if request.path == '/about' %} class="active" {% endif %} href="#about">About</a>
+</div>
