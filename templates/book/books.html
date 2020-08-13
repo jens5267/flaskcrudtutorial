@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Books site
+{% endblock %}
+
+{% block content %}
+<div class=container>
+    <h1>Book Shelf </h1>
+    <h2>Hello, {{ name }}</h2>
+    <h2>There are currently {{ books|length }} books in your shelf</h2>
+    <div class="my-5">
+        <a href="/upload" class="btn btn-secondary {% if books|length == 5000 %} disabled {% endif %}" role="button">Upload all Books</a>
+        <a href="/delete_all" class="btn btn-danger {% if books|length == 0 %} disabled {% endif %}" role="button">Delete all Books</a>
+    </div>
+
+    <!--<form action="/download_book_info" method="POST">
+        <input type="submit" value="Download a list of Books">
+    </form> -->
+
+    <form action="/books" method="POST" class="form-inline my-5">
+        <div class="form-group mx-auto">
+            <input class="form-control mx-1" type="text" name="title" id="title" placeholder="Title">
+            <input class="form-control mx-1" type="text" name="author" id="author" placeholder="Author">
+            <input class="form-control mx-1" type="number" name="year" id="year" placeholder="Year">
+            <input class="form-control mx-1" type="number" name="isbn" id="isbn" placeholder="ISBN">
+            <input class="btn btn-primary mx-1" type="submit" value="Add Book">
+        </div>
+    </form>
+
+    <div class="container">
+        {% if books|length == 0 %}
+            <h4>There are no books. Add one below</h4>
+        {% else %}
+            <table class="table table-striped table-dark" style="border-radius: 25px;">
+                <tr style="text-align: left;">
+                    <th style="border: none;" >Book Title</th>
+                    <th>Author</th>
+                    <th>Year</th>
+                    <th>ISBN</th>
+                    <th>Rating</th>
+                    <th colspan="2" style="border: none;">Action</th>
+                </tr>
+                {% for book in books %}
+                <tr style="text-align: left;">
+                    <td>{{ book.title }}</td>
+                    <td>{{ book.author }}</td>
+                    <td>{{ book.year }}</td>
+                    <td>{{ book.isbn }}</td>
+                    <td>{{ book.average_rating }}</td>
+                    <td> <a href="/book/delete/{{ book.id }}"><i class="fa fa-close" title="delete" style="color: red;"></i></a> </td>
+                    <td> <a href="/book/update/{{ book.id }}"><i class="fa fa-edit" title="edit" style="color: white;"></i></a> </td>
+                </tr>
+                {% endfor %}
+            </table>
+        {% endif %}
+</div>
+{% endblock %}

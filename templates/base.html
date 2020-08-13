@@ -4,13 +4,28 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}Homepage{% endblock title %}</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css')}}">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"/>
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <!-- <link rel="shortcut icon" type="image/ico" href="static/favicon/books.ico"/> -->
+    <link rel="shortcut icon" type="image/png" href="book.png"/>
 </head>
 <body>
     {% include 'navbar/navbar.html' %}
-    {% block content %}
-    {% endblock content %}
-    <h1>some dummy text</h1>
+    <div class="container text-center">
+        {% block content %}
+        {% endblock content %}
+    </div>
+
+    <div class="container text-center">
+        {% block rating %}
+        {% endblock rating %}
+    </div>
+<!--
+    <div class="container text-center">
+        <h1>some dummy text</h1>
+    </div> -->
 </body>
 </html>

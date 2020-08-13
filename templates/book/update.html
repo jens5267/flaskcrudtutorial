@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Book Update Site
+{% endblock %}
+
+{% block content %}
+
+<div class="container">
+    <h1 class="text-center">Update Book</h1>
+    <form action="/book/update/{{ book.id }}" method="POST">
+        <div class="form-group row">
+            <label class="col-sm-2 col-form-label" for="title">Book title:</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="title" placeholder="Enter title" name="title" value="{{ book.title }}">
+            </div>
+
+            <label class="col-sm-2 col-form-label" for="author">Book author:</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="author" placeholder="Enter author" name="author" value="{{ book.author }}">
+            </div>
+
+            <label class="col-sm-2 col-form-label" for="year">Book year:</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="year" placeholder="Enter year" name="year" value="{{ book.year }}">
+            </div>
+
+            <label class="col-sm-2 col-form-label" for="isbn">Book ISBN:</label>
+            <div class="col-sm-10">
+                <input type="number" class="form-control" id="isbn" placeholder="Enter isbn" name="isbn" value="{{ book.isbn }}">
+            </div>
+        </div>
+
+        <input class="btn btn-primary" type="submit" value="Update Book">
+        <a href="/books" class="btn btn-danger" role="button">Cancel</a>
+
+    </form>
+</div>
+{% endblock content %}
+
+{% block rating %}
+
+<div class="txt-center">
+    <form action="/book/rate/{{ book.id }}" method="POST">
+          <div class="rating">
+                <input id="star5" name="rate" type="submit" value="5" class="radio-btn hide" />
+                <label for="star5" >☆</label>
+                <input id="star4" name="rate" type="submit" value="4" class="radio-btn hide" />
+                <label for="star4" >☆</label>
+                <input id="star3" name="rate" type="submit" value="3" class="radio-btn hide" />
+                <label for="star3" >☆</label>
+                <input id="star2" name="rate" type="submit" value="2" class="radio-btn hide" />
+                <label for="star2" >☆</label>
+                <input id="star1" name="rate" type="submit" value="1" class="radio-btn hide" />
+                <label for="star1" >☆</label>
+          </div>
+      </form>
+  </div>
+
+{% endblock rating %}
